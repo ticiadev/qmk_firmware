@@ -1,6 +1,5 @@
 # IDOBO Colemak, numpad in center
 
-
 # tapdance (triple) for CTL+ (Z, X, V), (double) for CTL+S = CTL+C
 * RSHIFT (SFL) double tap to CAPS, tap again to revert
 

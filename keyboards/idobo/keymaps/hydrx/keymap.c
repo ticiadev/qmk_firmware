@@ -181,6 +181,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [C_Z]  = TRIPLE_TAP_DANCE_DOUBLE(KC_Z, LCTL(KC_Z)),
   [C_X]  = TRIPLE_TAP_DANCE_DOUBLE(KC_X, LCTL(KC_X)),
   [C_V]  = TRIPLE_TAP_DANCE_DOUBLE(KC_V, LCTL(KC_V)),
+
   [C_S]  = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_S), LCTL(KC_C)),
   [S_C] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sft_finished, sft_reset)
 };
