@@ -5,10 +5,12 @@
 // layers:
 #define _CK 0
 #define _FN 1
+#define _MC 2
 
 enum custom_keycodes {
   CK = SAFE_RANGE,
   FN,
+  MC,
 };
 
 // tap dance declarations
@@ -17,6 +19,10 @@ enum {
   C_X,
   C_V,
   C_S,
+  M_Z,
+  M_X,
+  M_V,
+  M_S,
   S_C,
 };
 
@@ -53,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
  * | SHIFT  | Z      | X      | C      | V      | B      | P1     | P2     | P3     | K      | M      | ,      | .      |  /     | SFL    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * | LCTRL  | LGUI   | LALT   | CTRL+S | [      | SPACE  | BKSP   | P0     | ENTER  | SPACE  | ]      |  LEFT  |  UP    |  DOWN  | RIGHT  |
+ * | LCTRL  | LGUI   | LALT   | CTRL+S | [      | SPACE  | BKSP   | P0     | ENTER  | SPACE  | ]      |  LEFT  |  DOWN  |  UP    | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
@@ -62,29 +68,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    { KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_P7,   KC_P8,   KC_P9,   KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_QUOT  },
    { TT(_FN), KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_P4,   KC_P5,   KC_P6,   KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT   },
    { KC_LSFT, TD(C_Z), TD(C_X), KC_C,    TD(C_V), KC_B,    KC_P1,   KC_P2,   KC_P3,   KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TD(S_C)  },
-   { KC_LCTL, KC_LGUI, KC_LALT, TD(C_S), KC_LBRC, KC_SPC,  KC_BSPC, KC_P0,   KC_ENT,  KC_SPC,  KC_RBRC, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT  },
+   { KC_LCTL, KC_LGUI, KC_LALT, TD(C_S), KC_LBRC, KC_SPC,  KC_BSPC, KC_P0,   KC_ENT,  KC_SPC,  KC_RBRC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  },
   },
 
 /* FUNCTION LAYER - arrows, fn keys, media keys
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * |        | F1     | F2     | F3     | F4     | F5     | F11    | F12    |        | F6     | F7     | F8     | F9     | F10    | `      |
+ * | MAC    | F1     | F2     | F3     | F4     | F5     | F11    | F12    |        | F6     | F7     | F8     | F9     | F10    | `      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
  * |        |        |   UP   |        |        |        | RESET  |RGB_TOG |RGB_MOD |        |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * |        |  LEFT  |  DOWN  | RIGHT  |        |        |  ASUP  |  ASTG  |  ASRP  |        |        |        |        |        |        |
+ * |        |  LEFT  |  DOWN  | RIGHT  |        |        |  ASRP  |  ASTG  |  ASUP  |        |        |        |        |        | MUTE   |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * |        |        |        |        |        |        |  ASDN  |   UP   |  DEL   |        |        |        |        |        | PLAY   |
+ * |        |        |        |        |        |        |  INS   |  HOME  |  ASDN  |        |        |        |        |        | PLAY   |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * |        |        |        |        |        |        |  LEFT  |  DOWN  | RIGHT  |        |        | RW     | VOLU   | VOLD   | FW     |
+ * |        |        |        |        |        |        |  DEL   |  END   |  NLCK  |        |        | RW     | VOLD   | VOLU   | FW     |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
   [_FN] = { /* FUNCTION */
-   { KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F11,  KC_F12,  KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_TRNS  },
+   { TO(_MC), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F11,  KC_F12,  KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_TRNS  },
    { KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS, KC_TRNS, KC_TRNS, RESET,   RGB_TOG, RGB_MOD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS  },
-   { KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_ASUP, KC_ASTG, KC_ASRP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS  },
-   { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_ASDN, KC_UP,   KC_DEL,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY  },
-   { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_MPRV, KC_VOLU, KC_VOLD, KC_MNXT  },
+   { KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_ASRP, KC_ASTG, KC_ASUP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE  },
+   { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_INS,  KC_HOME, KC_ASDN, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY  },
+   { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL,  KC_END,  KC_NLCK, KC_TRNS, KC_TRNS, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT  },
+  },
+
+ /* MACOS LAYER - switch CTRL, GUI, TD CTRL
+ * .--------------------------------------------------------------------------------------------------------------------------------------.
+ * | ESC    | 1      | 2      | 3      | 4      | 5      | -      | =      | \      | 6      | 7      | 8      | 9      | 0      | `      |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
+ * | TAB    | Q      | W      | F      | P      | G      | P7     | P8     | P9     | J      | L      | U      | Y      | ;      | '      |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
+ * | FN     | A      | R      | S      | T      | D      | P4     | P5     | P6     | H      | N      | E      | I      | O      | ENTER  |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
+ * | SHIFT  | Z      | X      | C      | V      | B      | P1     | P2     | P3     | K      | M      | ,      | .      |  /     | SFL    |
+ * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
+ * | LGUI   | LCTRL  | LALT   | CMD+S  | [      | SPACE  | BKSP   | P0     | ENTER  | SPACE  | ]      |  LEFT  |  DOWN  |  UP    | RIGHT  |
+ * '--------------------------------------------------------------------------------------------------------------------------------------'
+ */
+
+  [_MC] = { /* MACOS */
+   { KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS, KC_EQL,  KC_BSLS, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV   },
+   { KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_P7,   KC_P8,   KC_P9,   KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_QUOT  },
+   { TT(_FN), KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_P4,   KC_P5,   KC_P6,   KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT   },
+   { KC_LSFT, TD(M_Z), TD(M_X), KC_C,    TD(M_V), KC_B,    KC_P1,   KC_P2,   KC_P3,   KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TD(S_C)  },
+   { KC_LGUI, KC_LCTL, KC_LALT, TD(M_S), KC_LBRC, KC_SPC,  KC_BSPC, KC_P0,   KC_ENT,  KC_SPC,  KC_RBRC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  },
   }
  };
 
@@ -182,7 +210,14 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [C_X]  = TRIPLE_TAP_DANCE_DOUBLE(KC_X, LCTL(KC_X)),
   [C_V]  = TRIPLE_TAP_DANCE_DOUBLE(KC_V, LCTL(KC_V)),
 
+  [M_Z]  = TRIPLE_TAP_DANCE_DOUBLE(KC_Z, LGUI(KC_Z)),
+  [M_X]  = TRIPLE_TAP_DANCE_DOUBLE(KC_X, LGUI(KC_X)),
+  [M_V]  = TRIPLE_TAP_DANCE_DOUBLE(KC_V, LGUI(KC_V)),
+
   [C_S]  = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_S), LCTL(KC_C)),
+
+  [M_S]  = ACTION_TAP_DANCE_DOUBLE(LGUI(KC_S), LGUI(KC_C)),
+
   [S_C] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sft_finished, sft_reset)
 };
 
