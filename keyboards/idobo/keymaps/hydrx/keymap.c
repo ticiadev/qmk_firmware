@@ -53,11 +53,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .--------------------------------------------------------------------------------------------------------------------------------------.
  * | ESC    | 1      | 2      | 3      | 4      | 5      | -      | =      | \      | 6      | 7      | 8      | 9      | 0      | `      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
- * | TAB    | Q      | W      | F      | P      | G      | P7     | P8     | P9     | J      | L      | U      | Y      | ;      | '      |
+ * | TAB    | Q      | W      | F      | P      | G      | P7     | P8     | P9     | J      | L      | U      | Y      | ;      | ENTER  |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | FN     | A      | R      | S      | T      | D      | P4     | P5     | P6     | H      | N      | E      | I      | O      | ENTER  |
+ * | FN     | A      | R      | S      | T      | D      | P4     | P5     | P6     | H      | N      | E      | I      | O      | '      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * | SHIFT  | Z      | X      | C      | V      | B      | P1     | P2     | P3     | K      | M      | ,      | .      |  /     | SFL    |
+ * | SHIFT( | Z      | X      | C      | V      | B      | P1     | P2     | P3     | K      | M      | ,      | .      |  /     | SFL    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
  * | LCTRL  | LGUI   | LALT   | CTRL+S | [      | SPACE  | BKSP   | P0     | ENTER  | SPACE  | ]      |  LEFT  |  UP    |  DOWN  | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -65,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_CK] = { /* COLEMAK */
    { KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS, KC_EQL,  KC_BSLS, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV   },
-   { KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_P7,   KC_P8,   KC_P9,   KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_QUOT  },
-   { TT(_FN), KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_P4,   KC_P5,   KC_P6,   KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT   },
-   { KC_LSFT, TD(C_Z), TD(C_X), KC_C,    TD(C_V), KC_B,    KC_P1,   KC_P2,   KC_P3,   KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TD(S_C)  },
+   { KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_P7,   KC_P8,   KC_P9,   KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_ENT   },
+   { TT(_FN), KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_P4,   KC_P5,   KC_P6,   KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT  },
+   { KC_LSPO, TD(C_Z), TD(C_X), KC_C,    TD(C_V), KC_B,    KC_P1,   KC_P2,   KC_P3,   KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TD(S_C)  },
    { KC_LCTL, KC_LGUI, KC_LALT, TD(C_S), KC_LBRC, KC_SPC,  KC_BSPC, KC_P0,   KC_ENT,  KC_SPC,  KC_RBRC, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT  },
   },
 
@@ -75,11 +75,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .--------------------------------------------------------------------------------------------------------------------------------------.
  * | ESC    | 1      | 2      | 3      | 4      | 5      | -      | =      | \      | 6      | 7      | 8      | 9      | 0      | `      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
- * | TAB    | Q      | W      | F      | P      | G      | P7     | P8     | P9     | J      | L      | U      | Y      | ;      | '      |
+ * | TAB    | Q      | W      | F      | P      | G      | P7     | P8     | P9     | J      | L      | U      | Y      | ;      | ENTER  |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | FN     | A      | R      | S      | T      | D      | P4     | P5     | P6     | H      | N      | E      | I      | O      | ENTER  |
+ * | FN     | A      | R      | S      | T      | D      | P4     | P5     | P6     | H      | N      | E      | I      | O      | '      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * | SHIFT  | Z      | X      | C      | V      | B      | P1     | P2     | P3     | K      | M      | ,      | .      |  /     | SFL    |
+ * | SHIFT( | Z      | X      | C      | V      | B      | P1     | P2     | P3     | K      | M      | ,      | .      |  /     | SFL    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
  * | LGUI   | LCTRL  | LALT   | CMD+S  | [      | SPACE  | BKSP   | P0     | ENTER  | SPACE  | ]      |  LEFT  |  UP    |  DOWN  | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -87,9 +87,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_MC] = { /* MACOS */
    { KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS, KC_EQL,  KC_BSLS, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV   },
-   { KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_P7,   KC_P8,   KC_P9,   KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_QUOT  },
-   { KC_TRNS, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_P4,   KC_P5,   KC_P6,   KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT   },
-   { KC_LSFT, TD(M_Z), TD(M_X), KC_C,    TD(M_V), KC_B,    KC_P1,   KC_P2,   KC_P3,   KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TD(S_C)  },
+   { KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_P7,   KC_P8,   KC_P9,   KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_ENT   },
+   { KC_TRNS, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_P4,   KC_P5,   KC_P6,   KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT  },
+   { KC_LSPO, TD(M_Z), TD(M_X), KC_C,    TD(M_V), KC_B,    KC_P1,   KC_P2,   KC_P3,   KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TD(S_C)  },
    { KC_LGUI, KC_LCTL, KC_LALT, TD(M_S), KC_LBRC, KC_SPC,  KC_BSPC, KC_P0,   KC_ENT,  KC_SPC,  KC_RBRC, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT  },
   },
 
@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
  * |        |        |   UP   |        |        |        | RESET  |RGB_TOG |RGB_MOD |        |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * |        |  LEFT  |  DOWN  | RIGHT  |        |        |  ASRP  |  ASTG  |  ASUP  |        |        |        |        |        | MUTE   |
+ * |        |  LEFT  |  DOWN  | RIGHT  |        |        |  ASRP  |  ASTG  |  ASUP  |        | -      | _      | =      | +      | MUTE   |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
  * |        |        |        |        |        |        |  INS   |  HOME  |  ASDN  |        |        |        |        |        | PLAY   |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FN] = { /* FUNCTION */
    { TG(_MC), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F11,  KC_F12,  KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_TRNS  },
    { KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS, KC_TRNS, KC_TRNS, RESET,   RGB_TOG, RGB_MOD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS  },
-   { KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_ASRP, KC_ASTG, KC_ASUP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE  },
+   { KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_ASRP, KC_ASTG, KC_ASUP, KC_TRNS, KC_MINS, S(KC_MINS), KC_EQL, S(KC_EQL), KC_MUTE  },
    { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_INS,  KC_HOME, KC_ASDN, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY  },
    { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL,  KC_END,  KC_NLCK, KC_TRNS, KC_TRNS, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT  },
   }
@@ -177,7 +177,7 @@ void sft_finished (qk_tap_dance_state_t *state, void *user_data) {
             return;
         }
     }
-   
+
     if (caps_lock) {
         register_code(KC_CAPSLOCK);
     } else {
