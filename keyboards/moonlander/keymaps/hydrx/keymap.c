@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_MINUS,                                       KC_EQUAL,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_GRAVE,       
     KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_G,           KC_PGUP,                                        KC_BSLASH,      KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_ENTER,       
     OSL(1),         KC_A,           KC_R,           KC_S,           KC_T,           KC_D,           KC_PGDOWN,                                      KC_INSERT,      KC_H,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,       
-    KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                           KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,      
+    KC_LSPO,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                           KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSPC,      
     KC_LCTRL,       KC_LGUI,        KC_LALT,        TD(DANCE_0),    KC_LBRACKET,    CAPS_WORD,                                                                      KC_ASTG,        KC_RBRACKET,    KC_LEFT,        KC_UP,          KC_DOWN,        KC_RIGHT,       
                                                                     KC_SPACE,       KC_BSPACE,      KC_HOME,                                        KC_END,         KC_ENTER,       KC_SPACE
   ),
@@ -161,10 +161,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 
 void caps_word_set_user(bool active) {
-    if (active) {
-        ML_LED_1(active);
-        ML_LED_4(active);
-    } else {
-        // Do something when Caps Word deactivates.
-    }
+    ML_LED_1(active);
+    ML_LED_4(active);
 }
