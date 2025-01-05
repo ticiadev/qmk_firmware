@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FUNC] = LAYOUT_ansi_split_space(
         KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
         _______, GRV_TG,  _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,  KC_HOME, KC_PGUP, _______,          _______,
+        _______, _______, _______, _______, _______, _______, _______, KC_INS,  KC_HOME, KC_PGUP, _______, _______,          _______,
         _______,          _______, _______, _______, _______, _______, _______, KC_DEL,  KC_END,  KC_PGDN, _______, _______, _______,
         _______, _______, _______,          _______,                   _______,          _______, KC_APP,           _______,
                                                                                                            _______, _______, _______
@@ -56,13 +56,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    setPinOutput(LOCK_LED_PIN);
+    gpio_set_pin_output(LOCK_LED_PIN);
     switch (get_highest_layer(state)) {
         case _LOCK:
-            writePin(LOCK_LED_PIN, 0);
+            gpio_write_pin(LOCK_LED_PIN, 0);
             break;
         default: //  for any other layers, or the default layer
-            writePin(LOCK_LED_PIN, 1);
+            gpio_write_pin(LOCK_LED_PIN, 1);
             break;
     }
     return state;
